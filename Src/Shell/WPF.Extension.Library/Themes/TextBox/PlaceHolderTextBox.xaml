@@ -1,0 +1,43 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:WPF.Extension.Library.Controls"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../../Assets/TextBox.xaml" />
+        <ResourceDictionary Source="../../Assets/TextBlock.xaml" />
+        <ResourceDictionary Source="../../Assets/Converters.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style TargetType="controls:PlaceHolderTextBox">
+        <Setter Property="TextOptions.TextFormattingMode" Value="Display" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:PlaceHolderTextBox">
+                    <Grid>
+                        <!--<TextBox x:Name="TextInputControl" Text="{Binding Path=InputText,Mode=TwoWay,RelativeSource={RelativeSource TemplatedParent}}"/>-->
+                        <TextBox x:Name="TextInputControl"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <!--<Trigger Property="Text" Value="{x:Null}">
+                            <Setter Property="Foreground" Value="Red"/>
+                        </Trigger>
+                        <Trigger Property="Text" Value="{x:Static system:String.Empty}">
+                            <Setter Property="Foreground" Value="Red"/>
+                        </Trigger>-->
+                        <DataTrigger  Binding="{Binding Path=InputText}" Value="">
+                            <Setter TargetName="TextInputControl" Property="Foreground" Value="{DynamicResource PlaceHolderTextHolderText}" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=InputText}" Value="{x:Null}" >
+                            <Setter TargetName="TextInputControl" Property="Foreground" Value="{DynamicResource PlaceHolderTextHolderText}" />
+                        </DataTrigger>
+                        <!--<Trigger SourceName="TextInputControl" Property="TextBox.Text" Value="test">
+                            <Setter TargetName="TextInputControl" Property="Foreground" Value="Red"/>
+                        </Trigger>-->
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

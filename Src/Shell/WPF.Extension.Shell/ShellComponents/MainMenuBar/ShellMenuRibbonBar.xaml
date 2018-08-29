@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="WPF.Extension.Shell.ShellComponents.ShellMenuRibbonBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPF.Extension.Shell.ShellComponents"
+             xmlns:wel="http://ddomain.com/WPFExtension"
+             mc:Ignorable="d" 
+             MaxHeight="80"
+             d:DesignHeight="80" d:DesignWidth="300">
+    <Grid>
+        <wel:ModernTab SelectedSource="/ShellComponents/MainMenuBar/FileBar/FileBarPanel.xaml" Layout="Tab"  Margin="5,30,0,5">
+            <wel:ModernTab.Links>
+                <wel:Link DisplayName="file" Source="/ShellComponents/MainMenuBar/FileBar/FileBarPanel.xaml" />
+                <wel:Link DisplayName="edit" Source="/ShellComponents/MainMenuBar/EditBar/EditBarPanel.xaml" />
+                <wel:Link DisplayName="view" Source="/ShellComponents/MainMenuBar/ViewBar/ViewBarPanel.xaml"/>
+            </wel:ModernTab.Links>
+        </wel:ModernTab>
+    </Grid>
+</UserControl>

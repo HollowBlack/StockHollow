@@ -1,0 +1,32 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:WPF.Extension.Library.Controls">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../Assets/Button.xaml" />
+        <ResourceDictionary Source="../Assets/Converters.xaml" />
+        <ResourceDictionary Source="../Assets/TextBlock.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style TargetType="controls:CoolingBox" >
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type controls:CoolingBox}">
+                    <Border x:Name="border">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" MinWidth="50" MinHeight="50">
+                            <AdornerDecorator>
+                                <Grid x:Name="LayoutRoot">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <ContentPresenter Grid.Row="0" Margin="{TemplateBinding Padding}" Panel.ZIndex="-1"/>
+                                    <Rectangle Grid.Row="0" Fill="Gray" Panel.ZIndex="0" Opacity="0.3" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}"/>
+                                </Grid>
+                            </AdornerDecorator>
+                        </Border>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
